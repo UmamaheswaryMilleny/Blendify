@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { search } = require("../app");
-const {shema}=mongoose
+const {Schema}=mongoose
 
 const userSchema = new Schema({
         name:{
@@ -59,15 +59,18 @@ const userSchema = new Schema({
             default:Date.now
         }],
         referalCode:{
-            type:String
+            type:String,
+            // required:true
         },
         redeemed:{
-            type:Boolean
+            type:Boolean,
+            // default:false
         },
         redeemedUsers:[
             {
                 type:Schema.Types.ObjectId,
-                ref:"User"
+                ref:"User",
+                // required:true
             }
         ],
         searchHistory:[
