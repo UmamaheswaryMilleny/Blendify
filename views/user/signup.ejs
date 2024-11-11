@@ -10,11 +10,11 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/styles/userStyle/userSignup.css">
+    <link rel="stylesheet" href="/styles/userStyle/userSignup.css" />
     <title>Signup</title>
     <style>
-      .error-message{
-        color:red;
+      .error-message {
+        color: red;
         font-size: 0.75rem;
         display: none;
       }
@@ -25,187 +25,152 @@
       <div class="container main">
         <div class="row">
           <div class="col-md-6 side-image" style="background-image: url(/images/userImg/signup1.jpg);">
-            <!-------------      image     ------------->
-
             <div>
-              <img src="/images/logo.png" abglt="" />
+              <img src="/images/logo.png" />
               <h6 style="margin: 41px 57px; font-weight: 700">Blendify</h6>
             </div>
-            <!-- <div class="text">
-                    <p>Welcome to our Blendify family.Ready to blend? <i>- ludiflex</i></p>
-                </div> -->
           </div>
           <div class="col-md-6 right">
-          <form action="/signup" method="post" id="signform">
-            <div class="input-box">
-                <header style="color: #DD2D50;font-size: larger;">Sign Up to Start Blending</header>
+            <form action="/signup" method="post" id="signform">
+              <div class="input-box">
+                <header style="color: #dd2d50; font-size: larger;">Sign Up to Start Blending</header>
                 <div class="input-field">
-                  <input
-                    type="text"
-                    class="input"
-                    id="name"
-                    name="name"
-                    required=""
-                    autocomplete="off"
-                  />
-                  <label for="fullname">Full name</label>
+                  <input type="text" class="input" id="name" name="name" required="" autocomplete="off" />
                   <div id="error1" class="error-message"></div>
+                  <label for="fullname">Full name</label>
                 </div>
                 <div class="input-field">
-                  <input
-                    type="text"
-                    class="input"
-                    id="email"
-                    name="email"
-                    required=""
-                    autocomplete="off"
-                  />
-                  <label for="email">Email</label>
                   <div id="error2" class="error-message"></div>
+                  <input type="text" class="input" id="email" name="email" required="" autocomplete="off" />
+                  <label for="email">Email</label>
                 </div>
                 <div class="input-field">
-                  <input
-                    type="text"
-                    class="input"
-                    id="phone"
-                    name="phone"
-                    required=""
-                    autocomplete="off"
-                  />
-                  <label for="email">Phone Number</label>
                   <div id="error3" class="error-message"></div>
+                  <input type="text" class="input" id="phone" name="phone" required="" autocomplete="off" />
+                  <label for="phone">Phone Number</label>
                 </div>
                 <div class="input-field">
-                  <input type="password" class="input" id="password " required="" name="password" />
-                  <label for="pass">Password</label>
                   <div id="error4" class="error-message"></div>
+                  <input type="password" class="input" id="password" required="" name="password" />
+                  <label for="password">Password</label>
                 </div>
                 <div class="input-field">
-                  <input type="password" class="input" id="confirm-password " required="" name="cPassword" />
-                  <label for="pass">Confirm Password</label>
                   <div id="error5" class="error-message"></div>
+                  <input type="password" class="input" id="confirm-password" required="" name="cPassword" />
+                  <label for="confirm-password">Confirm Password</label>
                 </div>
                 <div class="input-field">
-                  <input type="submit" style="font-size: small;
-                  font-weight: 600;
-              " class="submit" value="Sign Up" />
+                  <input type="submit" class="submit" value="Sign Up" />
                 </div>
                 <h6 style="margin: 7px 155px; font-size: smaller">OR</h6>
                 <div class="input-field">
-                  <input style="font-size: small;
-                  font-weight: 600;
-              "
-                    type="submit"
-                    class="submit"
-                    value="Sign Up with Google"
-                  />
+                  <input type="submit" class="submit" value="Sign Up with Google" />
                 </div>
                 <div class="signin">
-                  <span
-                    >Already have an account? <a href="#">Log in here</a></span
-                  >
+                  <span>Already have an account? <a href="#">Log in here</a></span>
                 </div>
               </div>
-          </form>
+            </form>
           </div>
         </div>
       </div>
     </div>
 
     <script>
-      const nameid=document.getElementById("name")
-      const emailid=document.getElementById("email")
-      const phoneid=document.getElementById("phone")
-      const passid=document.getElementById("password")
-      const cpassid=document.getElementById("confirm-password")
-      const error1=document.getElementById("error1")
-      const error2=document.getElementById("error2")
-      const error3=document.getElementById("error3")
-      const error4=document.getElementById("error4")
-      const error5=document.getElementById("error5")
-      const signform=document.getElementById("signform")
+      const nameid = document.getElementById("name");
+      const emailid = document.getElementById("email");
+      const phoneid = document.getElementById("phone");
+      const passid = document.getElementById("password");
+      const cpassid = document.getElementById("confirm-password");
+      const error1 = document.getElementById("error1");
+      const error2 = document.getElementById("error2");
+      const error3 = document.getElementById("error3");
+      const error4 = document.getElementById("error4");
+      const error5 = document.getElementById("error5");
+      const signform = document.getElementById("signform");
 
-      function nameValidateChecking(e){
-        const nameval=nameid.value;
-        const namepattern =/^[A-Za-z\s]+$/;
-        if(nameval.trim()===""){
-          error1.style.display="block";
-          error1.innerHTML="Please enter a valid name";
-        }else if(!namepattern.test(nameval)){
-          error1.style.display="block"
-          error1.innerHTML="Name can only contain alphabers and spaces";
-        }else{
-          error1.style.display="none"
-          error1.innerHTML="";
+      function nameValidateChecking() {
+        const nameval = nameid.value;
+        const namepattern = /^[A-Za-z\s]+$/;
+        if (nameval.trim() === "") {
+          error1.style.display = "block";
+          error1.innerHTML = "Please enter a valid name";
+        } else if (!namepattern.test(nameval)) {
+          error1.style.display = "block";
+          error1.innerHTML = "Name can only contain letters and spaces";
+        } else {
+          error1.style.display = "none";
+          error1.innerHTML = "";
         }
       }
 
-      function phoneValidationChecking(e){
-        const phoneval=phoneid.value;
-        if(phoneval.trim()===""){
-          error3.style.display="block";
-          error3.innerHTML="Enter valid phone number"
-        }else if(phoneval.length<10 || phoneval.length>10){
-          error3.style.display="block";
-          error3.innerHTML="Enter 10 digit"
-        }else{
-          error3.style.display="none";
-          error3.innerHTML="";
+      function phoneValidationChecking() {
+        const phoneval = phoneid.value;
+        if (phoneval.trim() === "") {
+          error3.style.display = "block";
+          error3.innerHTML = "Enter a valid phone number";
+        } else if (phoneval.length !== 10) {
+          error3.style.display = "block";
+          error3.innerHTML = "Enter a 10-digit number";
+        } else {
+          error3.style.display = "none";
+          error3.innerHTML = "";
         }
       }
 
-      function emailValidateChecking(e){
-        const emailVal=emailid.value;
-        const emailpattern= /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
-        if(!emailpattern.test(emailVal)){
-          error2.style.display="none"
-          error2.innerHTML="";
-                }
+      function emailValidateChecking() {
+        const emailVal = emailid.value;
+        const emailpattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!emailpattern.test(emailVal)) {
+          error2.style.display = "block";
+          error2.innerHTML = "Enter a valid email address";
+        } else {
+          error2.style.display = "none";
+          error2.innerHTML = "";
+        }
       }
 
-      function passValidateChecking(e){
+      function passValidateChecking() {
         const passval = passid.value;
-        const cpassval = cpassid.value
+        const cpassval = cpassid.value;
         const alpha = /[a-zA-Z]/;
-        const digit=/\d/;
-        if(passval.length<8){
-          error4.style.display="block";
-          error4.innerHTML="Should contain numbers and alphabets"
-        }else if(!alpha.test(passval) || !digit.test(passval)){
-          error4.style.display="block"
-          error4.innerHTML="Should contain numbers and alphabers"
-        }else{
-          error4.style.display="none"
-          error4.innerHTML="";
+        const digit = /\d/;
+        if (passval.length < 8) {
+          error4.style.display = "block";
+          error4.innerHTML = "Password must be at least 8 characters";
+        } else if (!alpha.test(passval) || !digit.test(passval)) {
+          error4.style.display = "block";
+          error4.innerHTML = "Password should contain both letters and numbers";
+        } else {
+          error4.style.display = "none";
+          error4.innerHTML = "";
         }
-        if(passval!==cpassval){
-          error5.style.display="block";
-          error5.innerHTML="Passwords do not match"
-        }else{
-          error5.style.display="none"
-          error5.innerHTML=""
+        if (passval !== cpassval) {
+          error5.style.display = "block";
+          error5.innerHTML = "Passwords do not match";
+        } else {
+          error5.style.display = "none";
+          error5.innerHTML = "";
         }
-
       }
 
-      document.addEventListener("DOMContentLoaded",function(){
-        signform.addEventListener("submit",function(e){
+      document.addEventListener("DOMContentLoaded", function () {
+        signform.addEventListener("submit", function (e) {
           nameValidateChecking();
           emailValidateChecking();
-          phoneValidateChecking();
+          phoneValidationChecking();
           passValidateChecking();
-          if(!name || !emailid || !phoneid || !passid || !error1 || !error2 || !error3 || !error4 || !error5 || !signform){
-            console.error("One or more elements not found")
+          if (
+            error1.innerHTML ||
+            error2.innerHTML ||
+            error3.innerHTML ||
+            error4.innerHTML ||
+            error5.innerHTML
+          ) {
+            e.preventDefault();
           }
-          if(
-            error1.innerHTML || error2.innerHTML || error3.innerHTML || error4.innerHTML|| error5.innerHTML
-          ){
-            e.preventDefault()
-          }
-        })
-      })
-
+        });
+      });
     </script>
   </body>
 </html>
