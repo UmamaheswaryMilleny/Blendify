@@ -17,6 +17,7 @@ const loadHomepage=async(req,res)=>{
     try{
 
         const user=req.session.user;
+        // console.log(req.session.user)
         if(user){
             const userData = await User.findOne({_id:user._id})
             res.render("home",{user:userData})
@@ -148,7 +149,7 @@ const verifyOtp=async (req,res)=>{
             })
 
             await saveUserData.save();
-            req.session.user=saveUserData._id
+            req.session.user=saveUserData
             res.json({success:true,redirectUrl:"/"})
         }else{
             res.status(400).json({success:false,message:"Invalid OTP,Please try again"})
@@ -187,10 +188,10 @@ const loadLogin=async(req,res)=>{
         if(!req.session.user){
             return res.render("login")
         }else{
-            res.redirect("/pageNotFound")
+            res.redirect("/")
         }
     }catch(error){
-        res.redirect("pageNotFound")
+        res.redirect("/pageNotFound")
     }
 }
 
@@ -200,6 +201,9 @@ const login=async(req,res)=>{
         const {email,password}=req.body;
         const findUser=await User.findOne({isAdmin:0,email:email})
         if(!findUser){
+            return res.render("login",{message:"User not found"})
+        }
+        if(findUser.isBlocked){
             return res.render("login",{message:"User is blocked by admin"})
         }
         const passwordMatch=await bcrypt.compare(password,findUser.password)
@@ -207,13 +211,13 @@ const login=async(req,res)=>{
             return res.render("login",{message:"Incorrect Password"})
         }
 
-        req.session.user=findUser._id;
+        req.session.user=findUser;
         res.redirect("/")
 
     }catch(error){
 
         console.error("login error",error)
-        res.render("login",{message:"login failed. Please try again"})
+        res.render("login",{message:"login failed. Please try again later"})
 
     }
 }

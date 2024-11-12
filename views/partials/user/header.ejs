@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -19,22 +19,60 @@
     />
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="/styles/userStyle/bootstrap.min.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="/styles/userStyle/bootstrap.min.css"
+      type="text/css"
+    />
     <link
       rel="stylesheet"
       href="/styles/userStyle/font-awesome.min.css"
       type="text/css"
     />
-    <link rel="stylesheet" href="/styles/userStyle/elegant-icons.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/userStyle/magnific-popup.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/userStyle/nice-select.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="/styles/userStyle/elegant-icons.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="/styles/userStyle/magnific-popup.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="/styles/userStyle/nice-select.css"
+      type="text/css"
+    />
     <link
       rel="stylesheet"
       href="/styles/userStyle/owl.carousel.min.css"
       type="text/css"
     />
-    <link rel="stylesheet" href="/styles/userStyle/slicknav.min.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="/styles/userStyle/slicknav.min.css"
+      type="text/css"
+    />
     <link rel="stylesheet" href="/styles/userStyle/style.css" type="text/css" />
+    <style>
+       .marquee {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    animation: scroll-left 10s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+    </style>
   </head>
 
   <body>
@@ -48,17 +86,18 @@
     <div class="offcanvas-menu-wrapper">
       <div class="offcanvas__option">
         <div class="offcanvas__links">
-          <a href="#">Sign in</a>
+          <a href="/signup">Signup</a>
+          <a href="/login">Login</a>
           <!-- <a href="#">FAQs</a> -->
         </div>
-        <!-- <div class="offcanvas__top__hover">
-                <span>Usd <i class="arrow_carrot-down"></i></span>
-                <ul>
-                    <li>USD</li>
-                    <li>EUR</li>
-                    <li>USD</li>
-                </ul>
-            </div> -->
+        <div class="offcanvas__top__hover">
+          <span>Usd <i class="arrow_carrot-down"></i></span>
+          <ul>
+            <li>USD</li>
+            <li>EUR</li>
+            <li>USD</li>
+          </ul>
+        </div>
       </div>
       <div class="offcanvas__nav__option">
         <a href="#" class="search-switch"
@@ -72,7 +111,9 @@
       </div>
       <div id="mobile-menu-wrap"></div>
       <div class="offcanvas__text">
-        <p>Free shipping, 30-day return or refund guarantee.</p>
+        <p>
+          Free shipping, 30-day return or refund guarantee.asss
+        </p>
       </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -90,29 +131,35 @@
             <div class="col-lg-6 col-md-5">
               <div class="header__top__right">
                 <div class="header__top__links">
-                  <%if(locals.user){%>
-                    <div class="header__top__hover">
-                      <a href="#"><%=locals.user.name%></a>
-                      <span><i class="arrow_carrot-down"></i></span>
+                  <!-- <%if(locals.user){%> -->
+                  <!-- <div class="header__top__hover"> -->
+                  <!-- <a href="#"><%=locals.user.name%></a> -->
+                  <!-- <span><i class="arrow_carrot-down"></i></span>
                       <ul>
                           <li><a href="/userProfile">Profile</a></li>
                           <li><a href="/logout">Logout</a></li>
-                      </ul>
-                  </div>
-                    <%}else{%>
-                  <a href="/login">login</a>
-                  <a href="/signup">Sign up</a>
-                    <%}%>
+                      </ul> -->
+                  <!-- </div> -->
+                  <!-- <%}else{%> -->
+
+                  <!-- <%}%> -->
                   <!-- <a href="#">FAQs</a> -->
                 </div>
-                <!-- <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
-                                </ul>
-                            </div> -->
+                <%if(locals.user){%>
+                <div class="header__top__hover">
+                  <span
+                    ><%=locals.user.name%>
+                  </span>
+                  <ul>
+                    <li>Profile</li>
+                    <li>Logout</li>
+                    <!-- <li>USD</li> -->
+                  </ul>
+                </div>
+                <%}else{%>
+                <a href="/login">login</a>
+                <a href="/signup">Sign up</a>
+                <%}%>
               </div>
             </div>
           </div>
@@ -150,11 +197,12 @@
           <div class="col-lg-3 col-md-3">
             <div class="header__nav__option">
               <a href="#" class="search-switch"
-                ><img src="/images/icon/search.png" alt=""
+                ><img src="/images/userImg/icon/search.png" alt=""
               /></a>
               <a href="#"><img src="/images/icon/heart.png" alt="" /></a>
               <a href="#"
-                ><img src="/images/icon/cart.png" alt="" /> <span>0</span></a
+                ><img src="/images//userImg/icon/cart.png" alt="" />
+                <span>0</span></a
               >
               <div class="price">$0.00</div>
             </div>
@@ -163,3 +211,5 @@
         <div class="canvas__open"><i class="fa fa-bars"></i></div>
       </div>
     </header>
+  </body>
+</html>

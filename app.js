@@ -1,7 +1,8 @@
+const env = require("dotenv").config()
 const express = require("express")
 const session=require("express-session")
 const app = express();
-const env = require("dotenv").config()
+
 const db=require("./config/db")
 const path = require("path")
 const userRouter=require("./routes/userRouter")
@@ -11,7 +12,7 @@ db()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(session({
-    secret:process.env.SESSION_SECRET ,
+    secret:process.env.SESSION_SECRET  || 'mySecret',
     resave:false,
     saveUninitialized:true,
     cookie:{

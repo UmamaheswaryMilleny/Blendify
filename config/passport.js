@@ -23,7 +23,7 @@ async(accessToken,refreshToken,profile,done)=>{
             return done(null,user)
         }
     }catch(error){
-        return done(err,null)
+        return done(error,null)
     }
 }
 ))
@@ -38,7 +38,7 @@ passport.deserializeUser((id,done)=>{
         done(null,user)
     })
     .catch(err=>{
-        done(err.null)
+        done(err,null)
     })
 })
 
