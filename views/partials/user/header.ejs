@@ -90,8 +90,19 @@
             <div class="col-lg-6 col-md-5">
               <div class="header__top__right">
                 <div class="header__top__links">
+                  <%if(locals.user){%>
+                    <div class="header__top__hover">
+                      <a href="#"><%=locals.user.name%></a>
+                      <span><i class="arrow_carrot-down"></i></span>
+                      <ul>
+                          <li><a href="/userProfile">Profile</a></li>
+                          <li><a href="/logout">Logout</a></li>
+                      </ul>
+                  </div>
+                    <%}else{%>
                   <a href="/login">login</a>
                   <a href="/signup">Sign up</a>
+                    <%}%>
                   <!-- <a href="#">FAQs</a> -->
                 </div>
                 <!-- <div class="header__top__hover">

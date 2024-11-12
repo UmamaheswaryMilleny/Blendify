@@ -14,15 +14,14 @@ const userSchema = new Schema({
         },
         phone:{
             type:String,
-            requires:false,
-            unique:false,
+            required:false,
+            unique:true,
             sparse:true,
             default:null
         },
         googleId:{
             type:String,
             unique: true,
-            sparse: true
         },
         password:{
             type:String,
@@ -79,9 +78,6 @@ const userSchema = new Schema({
                 category:{
                     type:Schema.Types.ObjectId,
                     ref:"Category"
-                },
-                brand:{
-                    type:String
                 },
                 searchOn:{
                     type:Date,

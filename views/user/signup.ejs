@@ -59,15 +59,21 @@
                   <input type="password" class="input" id="confirm-password" required="" name="cPassword" />
                   <label for="confirm-password">Confirm Password</label>
                 </div>
+                <%if(locals.message && message.length>0){%>
+                  <div class="alert alert-danger text-center">
+                    <%=message%>
+                  </div>
+                  <%}%>
                 <div class="input-field">
                   <input type="submit" class="submit" value="Sign Up" />
                 </div>
                 <h6 style="margin: 7px 155px; font-size: smaller">OR</h6>
                 <div class="input-field">
-                  <input type="submit" class="submit" value="Sign Up with Google" />
+                  <a href="/auth/google" type="button" class="submit" value="Sign Up with Google" >Sign Up with Google</a>
+                  <!-- <input type="submit" class="submit" value="Sign Up with Google" /> -->
                 </div>
                 <div class="signin">
-                  <span>Already have an account? <a href="#">Log in here</a></span>
+                  <span>Already have an account? <a href="/login">Log in here</a></span>
                 </div>
               </div>
             </form>

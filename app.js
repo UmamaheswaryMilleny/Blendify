@@ -5,12 +5,13 @@ const env = require("dotenv").config()
 const db=require("./config/db")
 const path = require("path")
 const userRouter=require("./routes/userRouter")
+const passport=require("./config/passport")
 db()
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(session({
-    secret:process.env.SESSION_SECRET,
+    secret:process.env.SESSION_SECRET ,
     resave:false,
     saveUninitialized:true,
     cookie:{
@@ -19,6 +20,10 @@ app.use(session({
         maxAge:72*60*60*1000
     }
 }))
+
+
+app.use(passport.initialize())
+
 
 app.use((req,res,next)=>{
     res.set('cache-control','no-store')
@@ -32,7 +37,7 @@ app.use(express.static(path.join(__dirname, "public")))
 
 app.use("/",userRouter)
 
-const PORT = 3003 || process.env.PORT
+const PORT = 3004 || process.env.PORT
 app.listen(PORT,()=>{
     console.log('server running')
 })
