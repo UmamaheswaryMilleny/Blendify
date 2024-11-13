@@ -4,12 +4,12 @@ const {Schema}=mongoose;
 const categorySchema=new mongoose.Schema({
     name:{
         type:String,
-        requires:true,
+        required:true,
         unique:true
     },
     description:{
         type:String,
-        requires:true
+        required:true
     },
     isListed:{
         type:Boolean,
