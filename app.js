@@ -38,10 +38,12 @@ app.use(express.static(path.join(__dirname, "public")))
 
 app.use("/",userRouter)
 app.use('/admin',adminRouter)
+ 
+
 
 const PORT = 3004 || process.env.PORT
 app.listen(PORT,()=>{
-    console.log('server running')
+    console.log('http://localhost:3004')
 })
 
 module.exports=app;

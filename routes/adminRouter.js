@@ -4,6 +4,10 @@ const adminController = require("../controllers/admin/adminController")
 const {userAuth,adminAuth}=require("../middlewares/auth")
 const customController=require("../controllers/admin/customerController")
 const categoryController = require("../controllers/admin/categoryController")
+const productController=require("../controllers/admin/productController")
+const multer=require("multer")
+const storage=require("../helpers/multer")
+const uploads=multer({storage:storage})
 
 router.get("/pageerror",adminController.pageerror)
 router.get("/login",adminController.loadLogin);
@@ -18,5 +22,8 @@ router.get('/unblockCustomer',adminAuth,customController.customerunBlocked)
 router.get("/category",adminAuth,categoryController.categoryInfo)
 router.post("/addCategory",adminAuth,categoryController.addCategory)
 
+
+router.get("/addProducts",adminAuth,productController.getProductAddPage)
+router.post("/addProducts",adminAuth,uploads.array("images",4),productController.addProducts)
 
 module.exports=router

@@ -69,11 +69,19 @@
                     <td></td>
                     <td><%= category.name %></td>
                     <td><%= category.description %></td>
-                    <td></td>
-                    <td></td>
                     <td>
-                      <button class="btn btn-info" style="width: 100px"><a href="#" class="text-white">Add Offer</a></button>
-                      <button class="btn btn-info" style="width: 100px"><a href="#" class="text-white">Remove</a></button>
+                      <%if(category.categoryOffer){%>
+                      <%=category.categoryOffer%>
+                      <%}else{%>
+                        0%
+                        <%}%>
+                    </td>
+                    <td>
+                      <%if(category.categoryOffer===0){%>
+                      <button class="btn btn-info" style="width: 100px"><a href="#" onclick="addOffer('<%=category._id%>')" class="text-white">Add Offer</a></button>
+                      <%}else{%>
+                      <button class="btn btn-info" style="width: 100px"><a href="#" class="text-white" onclick="removeOffer('<%=category._id%>')">Remove</a></button>
+                      <%}%>
                     </td>
                     <td>
                       <span class="badge rounded-pill alert-success" style="width: 60px">Listed</span>
@@ -175,6 +183,8 @@
         element.style.display = "none";
       });
     }
+
+    // async function addOffer
   </script>
 <%- include("../../views/partials/admin/footer") %>
 </body>

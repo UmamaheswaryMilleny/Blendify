@@ -88,7 +88,7 @@ const signup=async (req,res)=>{
     try{
         const {name,email,phone,password,cPassword}=req.body
         if(password!==cPassword){
-            return res.render("signup",{message:"User with this email already exists"})
+            return res.render("signup",{message:"Password not matchj"})
         }
         const findUser=await User.findOne({email});
         if(findUser){

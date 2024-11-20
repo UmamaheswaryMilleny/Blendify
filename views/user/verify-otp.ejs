@@ -49,6 +49,7 @@
         }
         .form-group {
             margin-bottom: 15px;
+            margin-left: 25px;
         }
         .otp-timer {
             display: inline-block;
@@ -120,8 +121,8 @@
                 <h3>Email Verification Page</h3>
             </div>
             <form id="otpForm" action="/verify-otp" method="post" onsubmit="return validateOTPForm()">
-                <div class="form-group"> 
-                    <label for="otp">Enter OTP:</label>
+                <div class="form-group" style="margin-left: 25px;"> 
+                    <label for="otp" >Enter OTP:</label>
                     <input type="text" id="otp" name="otp" class="form-control" required maxlength="6" pattern="\d*" />
                 </div>
                 <button type="submit" class="btn btn-primary">Verify Email</button>
